@@ -130,15 +130,13 @@ nav a.nav-link {
       display: block;
       /* margin: .5rem 0; */
   }
-  .info {
-      /* height: 50px; */
-     /* height: 100px; */
-  }
+
   .list-info {
     justify-content: center;
     align-items: center;
 
 }
+
 #logo {
     display: block;
     background : none;
@@ -160,4 +158,23 @@ nav a.nav-link {
 .list-group-item{
     /* padding: 0.75rem 2rem; */
     border: none;
+    border-right: 1px solid ;
+    padding : 0.25rem 1.25rem;
+    transition : all 0.5s ease-in-out;
+
+
 }
+.list-group-horizontal>.list-group-item:last-child {
+    border-right: 0;
+
+    border-radius: 0;
+}
+.list-group-item:hover{
+    color : #f10;
+    transform : scale(1.1);
+    border : none;
+}
+
+
+
+
