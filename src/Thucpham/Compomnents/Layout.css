@@ -331,15 +331,16 @@ transform: translate(0,150%);
 }
 .hotoffer{
     display: flex;
-    width: 90%;
+    width: 80%;
     margin: auto;
     width: 100%;
-
+    overflow: hidden;
     flex-wrap: wrap;
     text-align: center;
 }
 .card{
     margin: auto;
+    transition: all 1s;
 }
 #myBtn {
     display: none;
@@ -377,14 +378,23 @@ transform: translate(0,150%);
       align-items: center;
       padding: .7rem 0;
       border-radius: 100%;
+      display : block;
   }
 div.hot {
-    background-color:  #FBF5EF;
+    background-color:  #F8FBEF;
 }
-h2 {
-    color : #84C639;
-    font-size: 3em;
-    font-weight: bold;
+
+.card-body{
+    border-top : 1px dotted #ccc;
+}
+.offer:hover {
+    background-color: #f10;
+}
+.card:hover {
+    transform : scale(1.1);
+    -webkit-box-shadow: -2px 8px 12px -8px rgba(194,184,194,1);
+    -moz-box-shadow: -2px 8px 12px -8px rgba(194,184,194,1);
+    box-shadow: -2px 8px 12px -8px rgba(194,184,194,1);
 }
 
 
