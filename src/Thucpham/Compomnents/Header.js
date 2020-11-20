@@ -2,13 +2,14 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch , faShoppingCart, faUser} from '@fortawesome/free-solid-svg-icons'
 
-import {Navbar ,NavDropdown , Nav ,InputGroup ,FormControl ,Row , Col} from 'react-bootstrap'
+import {Navbar ,NavDropdown , Nav ,InputGroup ,FormControl ,Row , Col } from 'react-bootstrap'
 const HeaderComponent = () => {
 
 
     return(
+        <header className="" id="header">
         <Row className="fixW">
-            <Navbar  className=" navbar-dark"  expand="lg">
+            <Navbar  className=" navbar-dark" data-toggle="sticky-onscroll"  expand="lg">
                 <Col md={12} lg={3} sm={12}>
                     <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
                 </Col>
@@ -30,9 +31,9 @@ const HeaderComponent = () => {
                             </Col>
                             <Col>
                                 <Nav className="">
-                                    <NavDropdown title='Tai Khoan' id="basic-nav-dropdown">
+                                    <NavDropdown title='User Info' id="basic-nav-dropdown">
                                         <NavDropdown.Item href="#">Dang Nhap  <FontAwesomeIcon icon={faUser}/></NavDropdown.Item>
-                                        <NavDropdown.Item href="#">Dang Ki</NavDropdown.Item>
+                                        <NavDropdown.Item href="#">Dang Ki <FontAwesomeIcon icon={faUser}/></NavDropdown.Item>
                                     </NavDropdown>
                                     {/* <div class="dropdown">
                                     <Nav.Link href="#home" id="shop" className="">Tai Khoan <FontAwesomeIcon icon={faUser}/></Nav.Link>
@@ -52,6 +53,7 @@ const HeaderComponent = () => {
                 </Col>
             </Navbar>
         </Row>
+        </header>
     )
 }
 export default React.memo(HeaderComponent)
