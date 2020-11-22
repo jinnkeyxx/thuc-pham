@@ -479,6 +479,10 @@ footer {
     color :#fff;
 }
 
+ul.pagination {
+    justify-content: center;
+    padding: 1rem;
+}
 
 
 

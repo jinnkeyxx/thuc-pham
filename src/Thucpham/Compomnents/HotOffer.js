@@ -6,8 +6,8 @@ import { faEye, faShoppingCart} from '@fortawesome/free-solid-svg-icons'
 import "react-awesome-lightbox/build/style.css";
 import LoadingComponent from './Loading'
 import ImgHotOffer from '../images/offer.png'
-import { data } from '../dataFake/HotOffer'
-
+import { data1 } from '../dataFake/HotOffer'
+import Pagination from './Pagination'
 const HotofferComponent = () => {
 
     const [show , setShow] = useState(false)
@@ -15,16 +15,21 @@ const HotofferComponent = () => {
     const [titleImage , setTitleImage] = useState('')
     const [dataHotOffer , setDataHotOffer] = useState([])
     const [isLoading , setLoading] = useState(false)
+    const [page , SetPage] = useState(1)
     const offerProduct = <h2 className="text-center py-3 " >Hot Offer</h2>
     const showImage = (img ,title) => {
         show ? setShow(false) : setShow(true)
         image === "" ? setImage(img) : setImage('')
         titleImage === "" ? setTitleImage(title) : setTitleImage('')
     }
+
+ const changPage = (pageNumber) => {
+
+  }
     useEffect(() => {
-        const loadData = async () => {
+        const loadData = async (data = data1) => {
             await setLoading(true)
-            await setDataHotOffer(data)
+            await setDataHotOffer(data.Product)
             await setLoading(false)
         }
         loadData()
@@ -38,7 +43,7 @@ const HotofferComponent = () => {
                 <div className="hotoffer my-3" >
                     {
                         dataHotOffer.map((item , index) => (
-                            <Card style={{ width: '17rem' }} className="mt-5 " data-aos="fade-up" >
+                            <Card style={{ width: '17rem' }} className="mt-5 " data-aos="fade-up" key={index}>
                             <div className="img_offer">
                                 <img src={ImgHotOffer} alt="product"/>
                             </div>
@@ -54,10 +59,10 @@ const HotofferComponent = () => {
                                 </Card.Body>
                             </div>
                             </Card>
-
                         ))
                     }
                 </div>
+                <Pagination changePage={changPage} activePage={1} perPage={4} totalItem={8}/>
             </Container>
         </div>
     )
