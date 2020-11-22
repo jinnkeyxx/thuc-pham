@@ -18,7 +18,8 @@ nav {
     background-color: #000;
     width: 100%;
     margin: 0 0;
-    /* overflow: hidden; */
+
+
 
 }
  header nav a.nav-link {
@@ -46,7 +47,7 @@ nav {
     padding: 0.5rem 0;
     width: 100%;
 }
-.input-group{
+#searchProduct{
     width: 50%;
     /* margin: .1em 0 0em 6em; */
     margin: auto;
@@ -386,16 +387,98 @@ div.hot {
 
 .card-body{
     border-top : 1px dotted #ccc;
+    padding : 0.7rem 1.25rem;
+}
+.card{
+    overflow: hidden;
+}
+.card:hover{
+    transform: translateY(-10px);
+    transition: all 0.5s;
+    -webkit-box-shadow: 0px 11px 4px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 11px 4px -7px rgba(0,0,0,0.75);
+    box-shadow: 0px 11px 4px -7px rgba(0,0,0,0.75);
+    border: 2px solid #84C639;
+    cursor: pointer;
+
+}
+.card:hover button{
+    transition: all 0.5s;
+    background-color: #f10;
+}
+.card:hover .card-boddy{
+    transform : scale(1.13);
+
+}
+.card:hover .offer{
+    transition: all 0.5s;
+
+    background-color: #f10;
 }
 .offer:hover {
     background-color: #f10;
 }
-.card:hover {
-    transform : scale(1.1);
-    -webkit-box-shadow: -2px 8px 12px -8px rgba(194,184,194,1);
-    -moz-box-shadow: -2px 8px 12px -8px rgba(194,184,194,1);
-    box-shadow: -2px 8px 12px -8px rgba(194,184,194,1);
+.card-boddy{
+    transition: all 0.5s;
+    border-radius: 5px;
 }
+.img_offer {
+    position : absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+}
+.img_offer img {
+    width : 100%;
+}
+.card-boddy::before {
+    position: absolute;
+    top: 0;
+    left: -75%;
+    z-index: 2;
+    display: block;
+    content: '';
+    width: 10%;
+    height: 100%;
+    background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+    -webkit-transform: skewX(-25deg);
+    transform: skewX(-25deg);
+}
+.card-boddy:hover:before{
+    animation-name: cardHover;
+    animation-iteration-count: 1;
+    animation-duration: 0.5s;
+}
+@keyframes cardHover{
+    from {
+        width: 50%;
+    }
+    to{
+        width: 200%;
+    }
+}
+.card:hover .h5 {
+    color : #84C639;
+}
+#subscribe::placeholder{
+    color : #fff;
+
+}
+#subscribe:focus{
+    outline: #fff !important;
+    border-color: #fff;
+    border : 2px solid #fff;
+}
+.subscribe {
+    transition : all 1s;
+    text-transform: uppercase;
+}
+footer {
+    background : #000;
+    color :#fff;
+}
+
 
 
 

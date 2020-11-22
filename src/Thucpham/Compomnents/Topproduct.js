@@ -5,10 +5,10 @@ const TopProduct = () => {
     return(
 
         <div className="hot my-5 ">
-            <h2 className="text-center py-5" >Top Product</h2>
+            <h2 className="text-center py-3" >Top Product</h2>
             <Container>
-                <div className="hotoffer">
-                    <Card style={{ width: '17rem' }} className="my-3">
+                <div className="hotoffer my-3">
+                    <Card style={{ width: '17rem' }} className="my-3 wow fadeInUp" data-wow-delay="0.9s">
                         <Card.Img variant="top" src={ImgProduct} />
                         <Card.Body className="my-3">
                             <div className="offer">50%</div>

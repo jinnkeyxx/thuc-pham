@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './Thucpham/index';
 import reportWebVitals from './reportWebVitals';
+import ReactWOW from 'react-wow'
 
 ReactDOM.render(
 

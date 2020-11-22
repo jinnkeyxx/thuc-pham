@@ -18,7 +18,7 @@ const HeaderComponent = () => {
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                             <Navbar.Collapse id="basic-navbar-nav">
                             <Col md={12} lg={7} className="text-center" >
-                                <InputGroup>
+                                <InputGroup id="searchProduct">
                                 <FormControl className="search"
                                 placeholder="serach a product"
                                 aria-label="serach a product"
