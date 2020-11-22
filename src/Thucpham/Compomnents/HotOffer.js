@@ -6,7 +6,8 @@ import { faEye, faShoppingCart} from '@fortawesome/free-solid-svg-icons'
 import "react-awesome-lightbox/build/style.css";
 import LoadingComponent from './Loading'
 import ImgHotOffer from '../images/offer.png'
-import { data1 } from '../dataFake/HotOffer'
+// import { data1 } from '../dataFake/HotOffer'
+import {HotOffer} from '../Service/HotOffer'
 import Pagination from './Pagination'
 const HotofferComponent = () => {
 
@@ -15,7 +16,8 @@ const HotofferComponent = () => {
     const [titleImage , setTitleImage] = useState('')
     const [dataHotOffer , setDataHotOffer] = useState([])
     const [isLoading , setLoading] = useState(false)
-    const [page , SetPage] = useState(1)
+    const [pageData , SetPageData] = useState(1)
+    const [pageActive , setPageActive] = useState(1)
     const offerProduct = <h2 className="text-center py-3 " >Hot Offer</h2>
     const showImage = (img ,title) => {
         show ? setShow(false) : setShow(true)
@@ -23,17 +25,21 @@ const HotofferComponent = () => {
         titleImage === "" ? setTitleImage(title) : setTitleImage('')
     }
 
- const changPage = (pageNumber) => {
-
-  }
+    const changPage = (pageNumber) => {
+        SetPageData(pageNumber)
+        setPageActive(pageNumber)
+        console.log(pageData);
+    }
     useEffect(() => {
-        const loadData = async (data = data1) => {
+        const loadData = async () => {
+            const data = await HotOffer.getData(pageData)
             await setLoading(true)
-            await setDataHotOffer(data.Product)
+            await setDataHotOffer(data.data.Product)
             await setLoading(false)
+            console.log(data.data.Product);
         }
         loadData()
-    }, []);
+    }, [pageData]);
     if(show) return  <Lightbox image={image} title={titleImage} onClose={ () => showImage(image , titleImage)}/>
     if(!isLoading && dataHotOffer.length <= 0) return <> {offerProduct}<LoadingComponent/></>
     return(
@@ -62,7 +68,7 @@ const HotofferComponent = () => {
                         ))
                     }
                 </div>
-                <Pagination changePage={changPage} activePage={1} perPage={4} totalItem={8}/>
+                <Pagination changePage={changPage} activePage={pageActive} perPage={4} totalItem={8}/>
             </Container>
         </div>
     )
