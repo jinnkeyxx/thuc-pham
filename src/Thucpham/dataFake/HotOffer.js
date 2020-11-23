@@ -5,6 +5,7 @@ import ImgProduct from '../images/1.png'
 export const dataFake = [
 
     {
+        _id : Math.floor(Math.random() * 999999),
         title : 'Nuoc rua Bat',
         image : ImgProduct,
         newPrice : 600,
@@ -12,6 +13,7 @@ export const dataFake = [
         discount : 50,
     },
     {
+        _id : Math.floor(Math.random() * 999999),
         title : 'Nuoc rua Bat',
         image : ImgProduct,
         newPrice : 600,
@@ -19,6 +21,7 @@ export const dataFake = [
         discount : 50,
     },
     {
+        _id : Math.floor(Math.random() * 999999),
         title : 'Nuoc rua Bat',
         image : ImgProduct,
         newPrice : 600,
@@ -26,6 +29,7 @@ export const dataFake = [
         discount : 50,
     },
     {
+        _id : Math.floor(Math.random() * 999999),
         title : 'Nuoc rua Bat',
         image : ImgProduct,
         newPrice : 600,
@@ -33,6 +37,7 @@ export const dataFake = [
         discount : 50,
     },
     {
+        _id : Math.floor(Math.random() * 999999),
         title : 'Nuoc rua chen',
         image : ImgProduct,
         newPrice : 600,
@@ -40,6 +45,7 @@ export const dataFake = [
         discount : 50,
     },
     {
+        _id : Math.floor(Math.random() * 999999),
         title : 'Nuoc rua chen',
         image : ImgProduct,
         newPrice : 600,
@@ -47,6 +53,7 @@ export const dataFake = [
         discount : 50,
     },
     {
+        _id : Math.floor(Math.random() * 999999),
         title : 'Nuoc rua chen',
         image : ImgProduct,
         newPrice : 600,
@@ -54,6 +61,7 @@ export const dataFake = [
         discount : 50,
     },
     {
+        _id : Math.floor(Math.random() * 999999),
         title : 'Nuoc rua chen',
         image : ImgProduct,
         newPrice : 600,

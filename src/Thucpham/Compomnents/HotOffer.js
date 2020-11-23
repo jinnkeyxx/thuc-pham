@@ -67,7 +67,7 @@ const HotofferComponent = () => {
                 <div className="hotoffer my-3" >
                     {
                         dataHotOffer.map((item , index) => (
-                            <Card style={{ width: '17rem' }} className="mt-5 " data-aos="fade-up" key={index}>
+                            <Card style={{ width: '17rem' }} className="mt-5 " data-aos="fade-up" key={item._id}>
                             <div className="img_offer">
                                 <img src={ImgHotOffer} alt="product"/>
                             </div>
