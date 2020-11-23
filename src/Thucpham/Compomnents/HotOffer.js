@@ -6,8 +6,9 @@ import { faEye, faShoppingCart} from '@fortawesome/free-solid-svg-icons'
 import "react-awesome-lightbox/build/style.css";
 import LoadingComponent from './Loading'
 import ImgHotOffer from '../images/offer.png'
-// import { data1 } from '../dataFake/HotOffer'
-import {HotOffer} from '../Service/HotOffer'
+import {apiFake , totalItem} from '../dataFake/HotOffer'
+
+// import {HotOffer} from '../Service/HotOffer'
 import Pagination from './Pagination'
 const HotofferComponent = () => {
     const [show , setShow] = useState(false)
@@ -30,16 +31,33 @@ const HotofferComponent = () => {
         SetPageData(pageNumber)
         setPageActive(pageNumber)
     }
+    // useEffect(() => {
+    //     const loadData = async () => {
+    //         const data = await HotOffer.getData(pageData , limitPage)
+    //         await setLoading(true)
+    //         await setDataHotOffer(data.data)
+    //         await setLoading(false)
+    //         await setTotalItemPgae(data.totalItem)
+    //     }
+    //     loadData()
+    // }, [pageData]);
+    // -------------------- Call Api Server --------------------------
     useEffect(() => {
         const loadData = async () => {
-            const data = await HotOffer.getData(pageData , limitPage)
+            const data = await apiFake.getData(pageData , limitPage)
             await setLoading(true)
-            await setDataHotOffer(data.data)
+            await setDataHotOffer(data)
+            await setTotalItemPgae(totalItem    )
             await setLoading(false)
-            await setTotalItemPgae(data.totalItem)
         }
         loadData()
     }, [pageData]);
+    // ---------------------- Call Api Fake --------------------------
+
+
+    // ----------------------- end Cal api useEffect , use 1 or 2 lycel -----------------
+
+
     if(show) return  <Lightbox image={image} title={titleImage} onClose={ () => showImage(image , titleImage)}/>
     if(!isLoading && dataHotOffer.length <= 0) return <> {offerProduct}<LoadingComponent/></>
     return(
