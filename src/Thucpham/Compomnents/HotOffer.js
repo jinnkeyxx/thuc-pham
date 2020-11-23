@@ -47,7 +47,7 @@ const HotofferComponent = () => {
             const data = await apiFake.getData(pageData , limitPage)
             await setLoading(true)
             await setDataHotOffer(data)
-            await setTotalItemPgae(totalItem    )
+            await setTotalItemPgae(totalItem)
             await setLoading(false)
         }
         loadData()
