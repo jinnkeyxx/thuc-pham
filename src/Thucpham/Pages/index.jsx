@@ -1,11 +1,11 @@
-import React, {useEffect , useState} from 'react'
+import React, {useEffect} from 'react'
 // import WOW from 'wowjs'
 
 import LayoutComponent from '../Compomnents/Layout'
 import NavRightComponent from '../Compomnents/NavRight'
 import CarouselComponent from '../Compomnents/Carousel'
-import HotofferComponent from '../Compomnents/HotOffer'
-import TopProduct from '../Compomnents/Topproduct'
+import HotofferComponent from '../ProductComponents/HotOffer'
+import TopProduct from '../ProductComponents/TopProduct'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 

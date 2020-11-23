@@ -3,15 +3,15 @@ import HeaderComponent from './Header'
 import FooterComponent from './Footer'
 import InfoProductComponent from './InfoProduct'
 
-import './Layout.css'
+import './css/Layout.css'
 
 const LayoutComponent = (props) => {
     return(
         <>
-            <HeaderComponent></HeaderComponent>
-            <InfoProductComponent></InfoProductComponent>
+            <HeaderComponent/>
+            <InfoProductComponent/>
             {props.children}
-            <FooterComponent></FooterComponent>
+            <FooterComponent/>
         </>
     )
 }

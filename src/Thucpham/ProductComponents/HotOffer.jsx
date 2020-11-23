@@ -4,12 +4,13 @@ import Lightbox from "react-awesome-lightbox";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faShoppingCart} from '@fortawesome/free-solid-svg-icons'
 import "react-awesome-lightbox/build/style.css";
-import LoadingComponent from './Loading'
+import LoadingComponent from '../Compomnents/Loading'
 import ImgHotOffer from '../images/offer.png'
-import {apiFake , totalItem} from '../dataFake/HotOffer'
-
+import {apiFake , totalItem , titleProduct} from '../dataFake/HotOffer'
+import Pagination from '../Compomnents/Pagination'
 // import {HotOffer} from '../Service/HotOffer'
-import Pagination from './Pagination'
+// --------- import api server ----------------
+
 const HotofferComponent = () => {
     const [show , setShow] = useState(false)
     const [image , setImage] = useState('')
@@ -19,9 +20,9 @@ const HotofferComponent = () => {
     const [pageData , SetPageData] = useState(1)
     const [pageActive , setPageActive] = useState(1)
     // const [limitPage , setLimitPage] = useState(4)
+    const [Product , setTitleProduct] = useState("")
     const [toTalItemPage , setTotalItemPgae ] = useState(0)
     const limitPage = 4
-    const offerProduct = <h2 className="text-center py-3 " >Hot Offer</h2>
     const showImage = (img ,title) => {
         show ? setShow(false) : setShow(true)
         image === "" ? setImage(img) : setImage('')
@@ -36,8 +37,10 @@ const HotofferComponent = () => {
     //         const data = await HotOffer.getData(pageData , limitPage)
     //         await setLoading(true)
     //         await setDataHotOffer(data.data)
-    //         await setLoading(false)
     //         await setTotalItemPgae(data.totalItem)
+    //         await setTitleProduct(data.titleProduct)
+
+    //         await setLoading(false)
     //     }
     //     loadData()
     // }, [pageData]);
@@ -48,6 +51,7 @@ const HotofferComponent = () => {
             await setLoading(true)
             await setDataHotOffer(data)
             await setTotalItemPgae(totalItem)
+            await setTitleProduct(titleProduct)
             await setLoading(false)
         }
         loadData()
@@ -57,29 +61,28 @@ const HotofferComponent = () => {
 
     // ----------------------- end Cal api useEffect , use 1 or 2 lycel -----------------
 
-
     if(show) return  <Lightbox image={image} title={titleImage} onClose={ () => showImage(image , titleImage)}/>
-    if(!isLoading && dataHotOffer.length <= 0) return <> {offerProduct}<LoadingComponent/></>
+    if(!isLoading && dataHotOffer.length <= 0) return <> <h2 className="text-center py-3 " >{titleProduct}</h2><LoadingComponent/></>
     return(
         <div className="hot my-5 ">
-            {offerProduct}
+            <h2 className="text-center py-3 " >{Product}</h2>
             <Container>
                 <div className="hotoffer my-3" >
                     {
                         dataHotOffer.map((item , index) => (
                             <Card style={{ width: '17rem' }} className="mt-5 " data-aos="fade-up" key={item._id}>
-                            <div className="img_offer">
-                                <img src={ImgHotOffer} alt="product"/>
-                            </div>
+                            {item.is_offer && (<div className="img_offer"><img src={ImgHotOffer} alt="product"/></div>)}
                             <div className="card-boddy">
                                 <Card.Img variant="top" src={item.image} onClick={() => showImage(item.image , item.title)} />
                                 <Card.Body className="mt-2">
-                                    <div className="offer">{item.discount}%</div>
-                                    <Card.Title className="mt-3">{item.title}</Card.Title>
-                                        <h4>{item.newPrice}$</h4>
-                                        <h4><del>{item.oldPrice}$</del></h4>
-                                    <Button variant="success" className="add_cart mx-1" onClick={() => showImage(item.image , item.title)}>View <FontAwesomeIcon icon={faEye}/></Button>
-                                    <Button variant="success" className="add_cart">Buy <FontAwesomeIcon icon={faShoppingCart}/> </Button>
+                                    {item.discount > 0 && (<div className="offer">{item.discount}%</div>)}
+                                    <Card.Title className="my-2">
+                                        {item.title}
+                                        {item.discount > 0 && (<h4 className="">{item.newPrice}$ &nbsp;<del> {item.oldPrice}$</del></h4>)}
+                                        {item.discount <= 0 && (<h4 className="">{item.newPrice}$</h4>)}
+                                    </Card.Title>
+                                    <Button variant="danger" className="add_cart mx-1" onClick={() => showImage(item.image , item.title)}>View <FontAwesomeIcon icon={faEye}/></Button>
+                                    <Button variant="danger" className="add_cart">Buy <FontAwesomeIcon icon={faShoppingCart}/> </Button>
                                 </Card.Body>
                             </div>
                             </Card>

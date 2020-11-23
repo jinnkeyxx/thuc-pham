@@ -7,10 +7,10 @@ const NavRightComponent = (props) => {
         <Container fluid>
             <Row>
                 <Col md={3} lg={3} className="">
-                <Navbar  className="nav-content navbar-light "  expand="md">
+                <Navbar  className="nav-content navbar-light navRight"  expand="md">
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav" className="nav-content">
-                    <Navigation
+                    {/* <Navigation
                         // activeItemId="/management/members"
                         onSelect={({itemId}) => {
                             {window.location.href=itemId}
@@ -86,7 +86,16 @@ const NavRightComponent = (props) => {
                             ],
                         },
                         ]}
-                    />
+                    /> */}
+
+
+                <ListGroup>
+                    <ListGroup.Item>Cras justo odio</ListGroup.Item>
+                    <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+                    <ListGroup.Item>Morbi leo risus</ListGroup.Item>
+                    <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
+                    <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+                </ListGroup>
                     </Navbar.Collapse>
                 </Navbar>
                 </Col>

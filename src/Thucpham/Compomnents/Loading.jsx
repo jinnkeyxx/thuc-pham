@@ -1,5 +1,5 @@
 import React from 'react'
-import './Loading.scss'
+import './css/Loading.scss'
 const LoadingComponent = () => {
     return(
         <div className="text-center my-5" style={{display : 'flex' ,justifyContent: 'center' ,

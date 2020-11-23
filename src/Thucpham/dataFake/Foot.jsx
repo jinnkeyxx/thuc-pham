@@ -10,7 +10,8 @@ export const dataFake = [
         image : ImgProduct,
         newPrice : 600,
         oldPrice : 300,
-        discount : 50,
+        discount : 0,
+        is_offer : false,
     },
     {
         _id : Math.floor(Math.random() * 999999),
@@ -19,6 +20,7 @@ export const dataFake = [
         newPrice : 600,
         oldPrice : 300,
         discount : 50,
+        is_offer : true,
     },
     {
         _id : Math.floor(Math.random() * 999999),
@@ -27,6 +29,7 @@ export const dataFake = [
         newPrice : 600,
         oldPrice : 300,
         discount : 50,
+        is_offer : true,
     },
     {
         _id : Math.floor(Math.random() * 999999),
@@ -35,6 +38,7 @@ export const dataFake = [
         newPrice : 600,
         oldPrice : 300,
         discount : 50,
+        is_offer : true,
     },
     {
         _id : Math.floor(Math.random() * 999999),
@@ -43,6 +47,7 @@ export const dataFake = [
         newPrice : 600,
         oldPrice : 300,
         discount : 50,
+        is_offer : true,
     },
     {
         _id : Math.floor(Math.random() * 999999),
@@ -51,6 +56,7 @@ export const dataFake = [
         newPrice : 600,
         oldPrice : 300,
         discount : 50,
+        is_offer : true,
     },
     {
         _id : Math.floor(Math.random() * 999999),
@@ -59,6 +65,7 @@ export const dataFake = [
         newPrice : 600,
         oldPrice : 300,
         discount : 50,
+        is_offer : true,
     },
     {
         _id : Math.floor(Math.random() * 999999),
@@ -67,8 +74,10 @@ export const dataFake = [
         newPrice : 600,
         oldPrice : 300,
         discount : 50,
+        is_offer : true,
     }
 ]
+export const titleProduct = "Hot Offer"
 export const totalItem = dataFake.length
 // func pagination data fake
 const getData = (page , limit) => {
