@@ -10,7 +10,6 @@ import ImgHotOffer from '../images/offer.png'
 import {HotOffer} from '../Service/HotOffer'
 import Pagination from './Pagination'
 const HotofferComponent = () => {
-
     const [show , setShow] = useState(false)
     const [image , setImage] = useState('')
     const [titleImage , setTitleImage] = useState('')
@@ -18,25 +17,26 @@ const HotofferComponent = () => {
     const [isLoading , setLoading] = useState(false)
     const [pageData , SetPageData] = useState(1)
     const [pageActive , setPageActive] = useState(1)
+    // const [limitPage , setLimitPage] = useState(4)
+    const [toTalItemPage , setTotalItemPgae ] = useState(0)
+    const limitPage = 4
     const offerProduct = <h2 className="text-center py-3 " >Hot Offer</h2>
     const showImage = (img ,title) => {
         show ? setShow(false) : setShow(true)
         image === "" ? setImage(img) : setImage('')
         titleImage === "" ? setTitleImage(title) : setTitleImage('')
     }
-
     const changPage = (pageNumber) => {
         SetPageData(pageNumber)
         setPageActive(pageNumber)
-        console.log(pageData);
     }
     useEffect(() => {
         const loadData = async () => {
-            const data = await HotOffer.getData(pageData)
+            const data = await HotOffer.getData(pageData , limitPage)
             await setLoading(true)
-            await setDataHotOffer(data.data.Product)
+            await setDataHotOffer(data.data)
             await setLoading(false)
-            console.log(data.data.Product);
+            await setTotalItemPgae(data.totalItem)
         }
         loadData()
     }, [pageData]);
@@ -68,7 +68,7 @@ const HotofferComponent = () => {
                         ))
                     }
                 </div>
-                <Pagination changePage={changPage} activePage={pageActive} perPage={4} totalItem={8}/>
+                <Pagination changePage={changPage} activePage={pageActive} perPage={limitPage} totalItem={toTalItemPage}/>
             </Container>
         </div>
     )

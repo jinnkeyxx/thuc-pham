@@ -12,13 +12,6 @@ h2::after{
     left: 46%;
 
 }
-del{
-    font-weight: bold;
-    color: #f10;
-}
-.card-boddy {
-    border : 1px solid #ccc;
-    margin : 1rem;
-}
+
 
 
