@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react'
-// import WOW from 'wowjs'
-
+import { Container , Row , Col } from 'react-bootstrap'
 import LayoutComponent from '../Compomnents/Layout'
 import NavRightComponent from '../Compomnents/NavRight'
 import CarouselComponent from '../Compomnents/Carousel'
@@ -17,11 +16,18 @@ const IndexPage = () => {
     }, [])
     return(
         <LayoutComponent>
-            <NavRightComponent>
-                <CarouselComponent/>
-            </NavRightComponent>
-        <HotofferComponent/>
-        <TopProduct/>
+            <Container fluid>
+                <Row>
+                    <Col md={3} lg={3}>
+                        <NavRightComponent/>
+                    </Col>
+                    <Col>
+                        <CarouselComponent/>
+                    </Col>
+                </Row>
+            </Container>
+            <HotofferComponent/>
+            <TopProduct/>
         </LayoutComponent>
     )
 }

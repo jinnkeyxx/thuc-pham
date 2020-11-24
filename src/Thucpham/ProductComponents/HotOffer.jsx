@@ -61,16 +61,16 @@ const HotofferComponent = () => {
 
     // ----------------------- end Cal api useEffect , use 1 or 2 lycel -----------------
 
-    if(show) return  <Lightbox image={image} title={titleImage} onClose={ () => showImage(image , titleImage)}/>
+
     if(!isLoading && dataHotOffer.length <= 0) return <> <h2 className="text-center py-3 " >{titleProduct}</h2><LoadingComponent/></>
     return(
-        <div className="hot my-5 ">
-            <h2 className="text-center py-3 " >{Product}</h2>
+        <div className="hot my-5">
+            <h2 className="text-center py-3 my-3">{Product}</h2>
             <Container>
                 <div className="hotoffer my-3" >
                     {
                         dataHotOffer.map((item , index) => (
-                            <Card style={{ width: '17rem' }} className="mt-5 " data-aos="fade-up" key={item._id}>
+                            <Card style={{ width: '17rem' }} className="mt-3" data-aos="fade-up" key={item._id}>
                             {item.is_offer && (<div className="img_offer"><img src={ImgHotOffer} alt="product"/></div>)}
                             <div className="card-boddy">
                                 <Card.Img variant="top" src={item.image} onClick={() => showImage(item.image , item.title)} />
@@ -88,6 +88,7 @@ const HotofferComponent = () => {
                             </Card>
                         ))
                     }
+                    {show && (<Lightbox image={image} title={titleImage} onClose={ () => showImage(image , titleImage)}/>)}
                 </div>
                 <Pagination changePage={changPage} activePage={pageActive} perPage={limitPage} totalItem={toTalItemPage}/>
             </Container>

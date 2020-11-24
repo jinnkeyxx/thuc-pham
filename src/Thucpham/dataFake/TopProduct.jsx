@@ -1,5 +1,14 @@
+
+// data TopProduct
+
 import ImgProduct from '../images/11.jpg'
+
 const dataFake = [
+    {
+        _id : Math.floor(Math.random() * 999999),
+        image : ImgProduct,
+        title : 'Sieu Thi',
+    },
     {
         _id : Math.floor(Math.random() * 999999),
         image : ImgProduct,
