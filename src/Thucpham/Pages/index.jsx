@@ -3,14 +3,16 @@ import { Container , Row , Col } from 'react-bootstrap'
 import LayoutComponent from '../Compomnents/Layout'
 import NavRightComponent from '../Compomnents/NavRight'
 import CarouselComponent from '../Compomnents/Carousel'
-import HotofferComponent from '../ProductComponents/HotOffer'
 import TopProduct from '../ProductComponents/TopProduct'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-
-
+import { ProductComponent } from '../Compomnents/ProductComponent'
+import HotOfferComponent from '../ProductComponents/HotOffer'
+import {apiFake , totalItem , titleProduct , dataFake} from '../dataFake/HotOffer'
 import './index.css'
 const IndexPage = () => {
+const HotOffer = ProductComponent(HotOfferComponent , dataFake)
+
     useEffect(() => {
         AOS.init({duration : 2000});
     }, [])
@@ -26,7 +28,7 @@ const IndexPage = () => {
                     </Col>
                 </Row>
             </Container>
-            <HotofferComponent/>
+            <HotOffer/>
             <TopProduct/>
         </LayoutComponent>
     )
