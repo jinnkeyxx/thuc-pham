@@ -6,12 +6,13 @@ export const dataFake = [
 
     {
         _id : Math.floor(Math.random() * 999999),
-        title : 'Nuoc rua Bat',
+        title : 'Nuoc Mam',
         image : ImgProduct,
         newPrice : 600,
         oldPrice : 300,
-        discount : 0,
-        is_offer : false,
+        discount : 50,
+        is_offer : true,
+
     },
     {
         _id : Math.floor(Math.random() * 999999),
@@ -77,7 +78,7 @@ export const dataFake = [
         is_offer : true,
     }
 ]
-export const titleProduct = "Hot Offer"
+export const titleProduct = "Foot"
 export const totalItem = dataFake.length
 // func pagination data fake
 const getData = (page , limit) => {
@@ -86,6 +87,6 @@ const getData = (page , limit) => {
     const result = dataFake.slice(startIndex , endIndex)
     return result
 }
-export const apiFake = {
+export const Foot = {
     getData
 }

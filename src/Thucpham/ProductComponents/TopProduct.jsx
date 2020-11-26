@@ -64,7 +64,7 @@ const TopProduct = () =>{
                                     <Card  className="mb-4 imgProduct" key={item._id} data-aos="fade-right">
                                         <Card.Img variant="top" src={item.image} />
                                         <Card.Title className="titleProduct"></Card.Title>
-                                        <p><button className="button" type="button" data-hover="Show Now" data-active="I'M ACTIVE"><a href="/link"><span>{item.title} </span></a></button></p>
+                                        <p><button className="button" type="button" data-hover="Show Now" data-active="I'M ACTIVE"><a href={item.href}><span>{item.title} </span></a></button></p>
                                     </Card>
                                 ))}
                             </Row>

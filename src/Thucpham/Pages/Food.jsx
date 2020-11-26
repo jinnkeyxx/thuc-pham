@@ -7,12 +7,12 @@ import TopProduct from '../ProductComponents/TopProduct'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import ProductComponent  from '../Compomnents/ProductComponent'
-import HotOfferComponent from '../ProductComponents/HotOffer'
-import { HotOffer } from '../dataFake/HotOffer'
+import FootComponent from '../ProductComponents/Foot'
+import { Foot , totalItem , titleProduct } from '../dataFake/Foot'
 import './index.css'
 
-const IndexPage = () => {
-const DataHotOffer = ProductComponent(HotOfferComponent , HotOffer)
+const FootPage = () => {
+const DataFoot = ProductComponent(FootComponent , Foot)
 
     useEffect(() => {
         AOS.init({duration : 2000});
@@ -29,9 +29,9 @@ const DataHotOffer = ProductComponent(HotOfferComponent , HotOffer)
                     </Col>
                 </Row>
             </Container>
-            <DataHotOffer/>
+            <DataFoot/>
             <TopProduct/>
         </LayoutComponent>
     )
 }
-export default React.memo(IndexPage)
+export default React.memo(FootPage)

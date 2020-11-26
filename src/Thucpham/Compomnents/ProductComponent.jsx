@@ -1,16 +1,17 @@
 import React from 'react'
-export const ProductComponent = (Component , data) => {
+const ProductComponent = (Component , data) => {
     return class extends React.PureComponent{
         constructor(){
             super()
-            this.state ={
+            this.state = {
                 data : data
             }
         }
         render(){
             return(
-                <Component {...this.props} data={this.state.data}   />
+                <Component {...this.props} data={this.state.data}/>
             )
         }
     }
 }
+export default ProductComponent

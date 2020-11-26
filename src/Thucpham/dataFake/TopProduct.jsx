@@ -8,66 +8,91 @@ const dataFake = [
         _id : Math.floor(Math.random() * 999999),
         image : ImgProduct,
         title : 'Sieu Thi',
+        href : '/food',
     },
     {
         _id : Math.floor(Math.random() * 999999),
         image : ImgProduct,
         title : 'Sieu Thi',
+        href : '/food',
+
     },
     {
         _id : Math.floor(Math.random() * 999999),
         image : ImgProduct,
         title : 'Sieu Thi',
+        href : '/food',
+
     },
     {
         _id : Math.floor(Math.random() * 999999),
         image : ImgProduct,
         title : 'Sieu Thi',
+        href : '/food',
+
     },
     {
         _id : Math.floor(Math.random() * 999999),
         image : ImgProduct,
         title : 'Sieu Thi',
+        href : '/food',
+
     },
     {
         _id : Math.floor(Math.random() * 999999),
         image : ImgProduct,
         title : 'Sieu Thi',
+        href : '/food',
+
     },
     {
         _id : Math.floor(Math.random() * 999999),
         image : ImgProduct,
         title : 'Sieu Thi',
+        href : '/food',
+
     },
     {
         _id : Math.floor(Math.random() * 999999),
         image : ImgProduct,
         title : 'Sieu Thi',
+        href : '/food',
+
     },
     {
         _id : Math.floor(Math.random() * 999999),
         image : ImgProduct,
         title : 'Sieu Thi',
+        href : '/food',
+
     },
     {
         _id : Math.floor(Math.random() * 999999),
         image : ImgProduct,
         title : 'Sieu Thi',
+        href : '/food',
+
     },
     {
         _id : Math.floor(Math.random() * 999999),
         image : ImgProduct,
         title : 'Sieu Thi',
+        href : '/food',
+
     },
     {
         _id : Math.floor(Math.random() * 999999),
         image : ImgProduct,
         title : 'Sieu Thi',
+        href : '/food',
+
     },
     {
         _id : Math.floor(Math.random() * 999999),
         image : ImgProduct,
         title : 'Sieu Thi',
+        href : '/food',
+
     },
 ]
 export const titleProduct = "Top Product"

@@ -1,25 +1,27 @@
-import React ,{lazy , Suspense} from 'react'
-
-
+import React ,{ lazy , Suspense } from 'react'
 import LoadingComponent from './Compomnents/Loading'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
-const IndexPages = lazy(() => import('./Pages/index'))
+
+const IndexPage = lazy(() => import('./Pages/index'))
+const FoodPage = lazy(() => import('./Pages/Food'))
 const App = () => {
     return(
-        <Suspense fallback={<LoadingComponent/>}>
-            <Router>
+        <Router>
+            <Suspense fallback={<LoadingComponent/>}>
                 <Switch>
+                    <Route path="/food">
+                        <FoodPage/>
+                    </Route>
                     <Route extract path="/">
-                        <IndexPages/>
+                        <IndexPage/>
                     </Route>
                 </Switch>
-            </Router>
-        </Suspense>
+            </Suspense>
+        </Router>
 
     )
 }
