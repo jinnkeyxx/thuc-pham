@@ -8,7 +8,8 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import ProductComponent  from '../Compomnents/ProductComponent'
 import HotOfferComponent from '../ProductComponents/HotOffer'
-import { HotOffer } from '../dataFake/HotOffer'
+// import { HotOffer } from '../dataFake/HotOffer'
+ import { HotOffer } from '../Service/HotOffer'
 import './index.css'
 
 const IndexPage = () => {

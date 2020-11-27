@@ -7,12 +7,12 @@ import TopProduct from '../ProductComponents/TopProduct'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import ProductComponent  from '../Compomnents/ProductComponent'
-import FootComponent from '../ProductComponents/Foot'
-import { Foot , totalItem , titleProduct } from '../dataFake/Foot'
+import FoodComponent from '../ProductComponents/Foot'
+import { Food } from '../Service/Food'
 import './index.css'
 
 const FootPage = () => {
-const DataFoot = ProductComponent(FootComponent , Foot)
+const DataFoot = ProductComponent(FoodComponent , Food)
 
     useEffect(() => {
         AOS.init({duration : 2000});

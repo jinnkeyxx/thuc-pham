@@ -34,30 +34,30 @@ const Product = (props) => {
         setPageActive(pageNumber)
     }
 
-    // useEffect(() => {
-    //     const loadData = async () => {
-    //         const data = await props.data.getData(pageData , limitPage)
-    //         await setLoading(true)
-    //         await setDataHotOffer(data.data)
-    //         await setTotalItemPgae(data.totalItem)
-    //         await setTitleProduct(data.titleProduct)
-    //         await setLoading(false)
-    //     }
-    //     loadData()
-    // }, [pageData]);
-   // -------------------- Call Api Server --------------------------
-
     useEffect(() => {
         const loadData = async () => {
             const data = await props.data.getData(pageData , limitPage)
             await setLoading(true)
-            await setDataProduct(data)
-            await setTotalItemPgae(totalItem)
-            await setTitleProduct(titleProduct)
+            await setDataProduct(data.data)
+            await setTotalItemPgae(data.totalItem)
+            await setTitleProduct(data.titleProduct)
             await setLoading(false)
         }
         loadData()
     }, [pageData]);
+   // -------------------- Call Api Server --------------------------
+
+    // useEffect(() => {
+    //     const loadData = async () => {
+    //         const data = await props.data.getData(pageData , limitPage)
+    //         await setLoading(true)
+    //         await setDataProduct(data)
+    //         await setTotalItemPgae(totalItem)
+    //         await setTitleProduct(titleProduct)
+    //         await setLoading(false)
+    //     }
+    //     loadData()
+    // }, [pageData]);
     // ------------------- Call data fake -------------------
 
     // ------------------- end Cal api useEffect , use 1 or 2 lycel -----------------
