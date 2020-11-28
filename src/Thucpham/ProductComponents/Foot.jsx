@@ -1,8 +1,8 @@
 import React from 'react'
 import Product from '../Compomnents/Product'
-const FootComponent = (props) => {
+const FoodComponent = (props) => {
     return(
         <Product data={props.data}/>
     )
 }
-export default React.memo(FootComponent)
+export default React.memo(FoodComponent)
