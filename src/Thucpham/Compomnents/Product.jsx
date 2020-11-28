@@ -52,13 +52,10 @@ const Product = (props) => {
     //         const data = await props.data.getData(pageData , limitPage)
     //         await setLoading(true)
     //         await setDataProduct(data)
-<<<<<<< HEAD
-    //         // await setTotalItemPgae(props.totalItem)
-    //         // await setTitleProduct(props.titleProduct)
-=======
+
     //         await setTotalItemPgae(totalItem)
     //         await setTitleProduct(titleProduct)
->>>>>>> eed76c24510080ab0733d4129fe2f2989feed74f
+
     //         await setLoading(false)
     //     }
     //     loadData()

@@ -2,28 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './Thucpham/index';
-import Admin from './Admin/index'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+
+
 import reportWebVitals from './reportWebVitals';
 
 
 ReactDOM.render(
-  <Router>
-    <Switch>
-      <Route path="/">
-      <App />
-
-      </Route>
-      <Route path="/admin">
-          <Admin/>
-      </Route>
-    </Switch>
-  </Router>,
-
+      <App />,
   document.getElementById('root')
 );
 

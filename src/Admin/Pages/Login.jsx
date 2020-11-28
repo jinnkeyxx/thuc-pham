@@ -2,6 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook }  from '@fortawesome/free-brands-svg-icons'
 import {Container , Row , Col , Form , Button ,Card} from 'react-bootstrap'
+import '../Components/css/layout.css'
 const FormLogin = (props) => {
     return(
         <Container>
@@ -9,7 +10,6 @@ const FormLogin = (props) => {
             <Col sm={9} md={7} lg={5}>
                 <Card className="card-signin my-5">
                     <Card.Body>
-
                         <Card.Title className="text-center">Sign In</Card.Title>
                         <p className="text-danger">{props.error}</p>
                         <Form className="form-signin" onSubmit={props.submit}>

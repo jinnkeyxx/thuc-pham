@@ -9,12 +9,9 @@ import 'aos/dist/aos.css'
 import ProductComponent  from '../Compomnents/ProductComponent'
 import HotOfferComponent from '../ProductComponents/HotOffer'
 // import { HotOffer } from '../dataFake/HotOffer'
-<<<<<<< HEAD
-import { HotOffer } from '../Service/HotOffer'
 
-=======
  import { HotOffer } from '../Service/HotOffer'
->>>>>>> eed76c24510080ab0733d4129fe2f2989feed74f
+
 import './index.css'
 
 const IndexPage = () => {
