@@ -29,7 +29,7 @@ const DataFoot = ProductComponent(FootComponent , Foot)
                     </Col>
                 </Row>
             </Container>
-            <DataFoot/>
+            <DataFoot Product={titleProduct}/>
             <TopProduct/>
         </LayoutComponent>
     )

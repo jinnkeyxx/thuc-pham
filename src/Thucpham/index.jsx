@@ -8,6 +8,7 @@ import {
 
 const IndexPage = lazy(() => import('./Pages/index'))
 const FoodPage = lazy(() => import('./Pages/Food'))
+const AdminPage = lazy(() => import('../Admin/index'))
 const App = () => {
     return(
         <Router>
@@ -15,6 +16,9 @@ const App = () => {
                 <Switch>
                     <Route path="/food">
                         <FoodPage/>
+                    </Route>
+                    <Route path="/admin">
+                        <AdminPage/>
                     </Route>
                     <Route extract path="/">
                         <IndexPage/>

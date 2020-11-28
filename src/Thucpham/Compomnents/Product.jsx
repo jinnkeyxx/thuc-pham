@@ -11,7 +11,7 @@ import Pagination from '../Compomnents/Pagination'
 // import {HotOffer} from '../Service/HotOffer'
 
 // --------- import api server ----------------
-import {  totalItem , titleProduct } from '../dataFake/HotOffer'
+// import {  totalItem , titleProduct } from '../dataFake/HotOffer'
 const Product = (props) => {
     const [show , setShow] = useState(false)
     const [image , setImage] = useState('')
@@ -34,38 +34,38 @@ const Product = (props) => {
         setPageActive(pageNumber)
     }
 
-    // useEffect(() => {
-    //     const loadData = async () => {
-    //         const data = await props.data.getData(pageData , limitPage)
-    //         await setLoading(true)
-    //         await setDataHotOffer(data.data)
-    //         await setTotalItemPgae(data.totalItem)
-    //         await setTitleProduct(data.titleProduct)
-    //         await setLoading(false)
-    //     }
-    //     loadData()
-    // }, [pageData]);
-   // -------------------- Call Api Server --------------------------
-
     useEffect(() => {
         const loadData = async () => {
             const data = await props.data.getData(pageData , limitPage)
             await setLoading(true)
-            await setDataProduct(data)
-            await setTotalItemPgae(totalItem)
-            await setTitleProduct(titleProduct)
+            await setDataProduct(data.data)
+            await setTotalItemPgae(data.totalItem)
+            await setTitleProduct(data.titleProduct)
             await setLoading(false)
         }
         loadData()
     }, [pageData]);
+   // -------------------- Call Api Server --------------------------
+
+    // useEffect(() => {
+    //     const loadData = async () => {
+    //         const data = await props.data.getData(pageData , limitPage)
+    //         await setLoading(true)
+    //         await setDataProduct(data)
+    //         // await setTotalItemPgae(props.totalItem)
+    //         // await setTitleProduct(props.titleProduct)
+    //         await setLoading(false)
+    //     }
+    //     loadData()
+    // }, [pageData]);
     // ------------------- Call data fake -------------------
 
     // ------------------- end Cal api useEffect , use 1 or 2 lycel -----------------
 
-    if(!isLoading && dataProduct.length <= 0) return <> <h2 className="text-center py-3 " >{titleProduct}</h2><LoadingComponent/></>
+    if(!isLoading && dataProduct.length <= 0) return <> <LoadingComponent/></>
     return(
         <div className="hot my-5">
-            <h2 className="text-center py-3 my-3">{Product}</h2>
+            <h2 className="text-center py-3 my-3">{props.Product}</h2>
             <Container>
                 <div className="hotoffer my-3" >
                     {

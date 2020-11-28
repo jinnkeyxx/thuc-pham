@@ -1,17 +1,20 @@
-import React from 'react'
+import React , {useState , useEffect}from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Container , Row , Col ,InputGroup , FormControl } from 'react-bootstrap'
 import {faArrowUp } from '@fortawesome/free-solid-svg-icons'
 import {faTwitterSquare, faFacebook, faLinkedin, faGithub}  from '@fortawesome/free-brands-svg-icons'
 const FooterComponent = () => {
 
-window.onscroll = function() {scrollFunction()};
+// window.onscroll = function() {scrollFunction()};
+	const [isHidden , setIsHiiden] = useState(false)
 
 const scrollFunction = () => {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("myBtn").style.display = "block";
+	// document.getElementById("myBtn").style.display = "block";
+	setIsHiiden(true)
   } else {
-    document.getElementById("myBtn").style.display = "none";
+	// document.getElementById("myBtn").style.display = "none";
+	setIsHiiden(false)
   }
 }
 const  topFunction = () => {

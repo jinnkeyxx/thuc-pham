@@ -9,7 +9,7 @@ const ProductComponent = (Component , data) => {
         }
         render(){
             return(
-                <Component {...this.props} data={this.state.data}/>
+                <Component {...this.props} Product={this.state.Product} data={this.state.data}/>
             )
         }
     }
