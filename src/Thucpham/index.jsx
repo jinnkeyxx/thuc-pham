@@ -8,7 +8,7 @@ import {
 
 const IndexPage = lazy(() => import('./Pages/index'))
 const FoodPage = lazy(() => import('./Pages/Food'))
-
+const LoginPage = lazy(() => import('./Pages/Login'))
 const AdminPage = lazy(() => import('../Admin/index'))
 
 const App = () => {
@@ -21,6 +21,9 @@ const App = () => {
                     </Route>
                     <Route path="/admin">
                         <AdminPage/>
+                    </Route>
+                    <Route path="/login">
+                        <LoginPage/>
                     </Route>
                     <Route extract path="/">
                         <IndexPage/>
