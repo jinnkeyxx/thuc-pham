@@ -8,9 +8,9 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import ProductComponent  from '../Compomnents/ProductComponent'
 import HotOfferComponent from '../ProductComponents/HotOffer'
-// import { HotOffer } from '../dataFake/HotOffer'
 
- import { HotOffer } from '../Service/HotOffer'
+
+import { HotOffer } from '../Service/HotOffer'
 
 import './index.css'
 
@@ -32,7 +32,7 @@ const DataHotOffer = ProductComponent(HotOfferComponent , HotOffer)
                     </Col>
                 </Row>
             </Container>
-            <DataHotOffer Product="Hot Offer"/>
+            <DataHotOffer />
             <TopProduct/>
         </LayoutComponent>
     )

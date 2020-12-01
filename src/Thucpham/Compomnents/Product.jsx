@@ -8,10 +8,7 @@ import "react-awesome-lightbox/build/style.css";
 import LoadingComponent from '../Compomnents/Loading'
 import ImgHotOffer from '../images/offer.png'
 import Pagination from '../Compomnents/Pagination'
-// import {HotOffer} from '../Service/HotOffer'
 
-// --------- import api server ----------------
-// import {  totalItem , titleProduct } from '../dataFake/HotOffer'
 const Product = (props) => {
     const [show , setShow] = useState(false)
     const [image , setImage] = useState('')
@@ -36,52 +33,33 @@ const Product = (props) => {
 
     useEffect(() => {
         const loadData = async () => {
-            const data = await props.data.getData(pageData , limitPage)
+            const data = await props.data.getData('hotoffer' , limitPage)
             await setLoading(true)
             await setDataProduct(data.data)
             await setTotalItemPgae(data.totalItem)
-            await setTitleProduct(data.titleProduct)
+            await setTitleProduct(data.title)
             await setLoading(false)
         }
         loadData()
     }, [pageData]);
-   // -------------------- Call Api Server --------------------------
-
-    // useEffect(() => {
-    //     const loadData = async () => {
-    //         const data = await props.data.getData(pageData , limitPage)
-    //         await setLoading(true)
-    //         await setDataProduct(data)
-
-    //         await setTotalItemPgae(totalItem)
-    //         await setTitleProduct(titleProduct)
-
-    //         await setLoading(false)
-    //     }
-    //     loadData()
-    // }, [pageData]);
-    // ------------------- Call data fake -------------------
-
-    // ------------------- end Cal api useEffect , use 1 or 2 lycel -----------------
 
     if(!isLoading && dataProduct.length <= 0) return <> <LoadingComponent/></>
     return(
         <div className="hot my-5">
-            <h2 className="text-center py-3 my-3">{props.Product}</h2>
+            <h2 className="text-center py-3 my-3">{Product}</h2>
             <Container>
                 <div className="hotoffer my-3" >
                     {
                         dataProduct.map((item , index) => (
-                            <Card style={{ width: '17rem' }} className="mt-3" data-aos="fade-right" key={item._id}>
+                            <Card style={{ width: '17rem' }} className="mt-3" data-aos="fade-right" key={index}>
                             {item.is_offer && (<div className="img_offer"><img src={ImgHotOffer} alt="product"/></div>)}
                             <div className="card-boddy">
-                                <Card.Img variant="top" src={item.image} onClick={() => showImage(item.image , item.title)} />
+                                <Card.Img variant="top" src={item.image} onClick={() => showImage(item.image , item.name)} />
                                 <Card.Body className="mt-2">
                                     {item.discount > 0 && (<div className="offer">{item.discount}%</div>)}
                                     <Card.Title className="my-2">
-                                        {item.title}
-                                        {item.discount > 0 && (<h4 className="">{item.newPrice}$ &nbsp;<del> {item.oldPrice}$</del></h4>)}
-                                        {item.discount <= 0 && (<h4 className="">{item.newPrice}$</h4>)}
+                                        {item.name}
+                                        {item.discount > 0 ? (<h4 className="">{item.price}$ &nbsp;<del> {item.price}$</del></h4>) : (<h4 className="">{item.price}$</h4>)}
                                     </Card.Title>
                                     <Button variant="danger" className="add_cart mx-1" onClick={() => showImage(item.image , item.title)}>View <FontAwesomeIcon icon={faEye}/></Button>
                                     <Button variant="danger" className="add_cart">Buy <FontAwesomeIcon icon={faShoppingCart}/> </Button>
