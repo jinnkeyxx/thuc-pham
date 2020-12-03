@@ -1,9 +1,12 @@
-import React from 'react'
+import React , { useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook }  from '@fortawesome/free-brands-svg-icons'
 import {Container , Row , Col , Form , Button ,Card} from 'react-bootstrap'
 import '../Compomnents/css/Layout.css'
 const FormLogin = (props) => {
+    useEffect(() => {
+        document.title = 'login'
+    }, [])
     return(
         <Container>
             <Row className="justify-content-md-center">

@@ -7,20 +7,17 @@ import {
 } from "react-router-dom";
 
 const IndexPage = lazy(() => import('./Pages/index'))
-const FoodPage = lazy(() => import('./Pages/Food'))
 const LoginPage = lazy(() => import('./Pages/Login'))
-const AdminPage = lazy(() => import('../Admin/index'))
+const ProductPage = lazy(() => import('./Pages/Product'))
 
 const App = () => {
     return(
         <Router>
             <Suspense fallback={<LoadingComponent/>}>
                 <Switch>
-                    <Route path="/food">
-                        <FoodPage/>
-                    </Route>
-                    <Route path="/admin">
-                        <AdminPage/>
+                    <Route path="/product/:name">
+                        <ProductPage/>
+
                     </Route>
                     <Route path="/login">
                         <LoginPage/>

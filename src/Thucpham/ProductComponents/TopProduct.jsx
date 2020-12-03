@@ -1,49 +1,35 @@
 import React , {useState , useEffect} from 'react'
 import { Container , Card , Col , Row } from 'react-bootstrap'
-import {apiFake , totalItem , titleProduct} from '../dataFake/TopProduct'
+import { api } from '../Service/apiProduct'
 import Pagination from '../Compomnents/Pagination'
 import LoadingComponent from '../Compomnents/Loading'
 import NavRightComponent from '../Compomnents/NavRight'
-
-// --------- import api server ----------------
 const TopProduct = () =>{
     const [dataProduct , setDataProduct] = useState([])
     const [isLoading , setLoading] = useState(false)
     const [pageData , SetPageData] = useState(1)
     const [pageActive , setPageActive] = useState(1)
-    // const [limitPage , setLimitPage] = useState(4)
     const [Product , setTitleProduct] = useState("")
     const [toTalItemPage , setTotalItemPgae ] = useState(0)
     const limitPage = 4
-
-    // useEffect(() => {
-    //     const loadData = async () => {
-    //         const data = await HotOffer.getData(pageData , limitPage)
-    //         await setLoading(true)
-    //         await setDataHotOffer(data.data)
-    //         await setTotalItemPgae(data.totalItem)
-    //         await setTitleProduct(data.titleProduct)
-
-    //         await setLoading(false)
-    //     }
-    //     loadData()
-    // }, [pageData]);
-    // -------------------- Call Api Server --------------------------
+    const PaginationData = ( data , page , limit) => {
+        const startIndex = (page - 1) * limit
+        const endIndex = page * limit
+        const result = data.slice(startIndex , endIndex)
+        return result
+    }
     useEffect(() => {
         const loadData = async () => {
-            const data = await apiFake.getData(pageData , limitPage)
             await setLoading(true)
-            await setDataProduct(data)
-            await setTotalItemPgae(totalItem)
-            await setTitleProduct(titleProduct)
+            const data = await api.getData('topproduct')
+            if(data.data.length <= 0) setDataProduct([])
+            await setDataProduct(PaginationData(data.data , pageData , limitPage))
+            await setTotalItemPgae(data.totalItem)
+            await setTitleProduct(data.title)
             await setLoading(false)
         }
         loadData()
     }, [pageData]);
-    // ---------------------- Call Api Fake --------------------------
-
-
-    // ----------------------- end Cal api useEffect , use 1 or 2 method -----------------
     const changPage = (pageNumber) => {
         SetPageData(pageNumber)
         setPageActive(pageNumber)
@@ -61,10 +47,10 @@ const TopProduct = () =>{
                         <Col className="">
                             <Row>
                                 {dataProduct.map((item , index) => (
-                                    <Card  className="mb-4 imgProduct" key={item._id} data-aos="fade-right">
+                                    <Card  className="mb-4 imgProduct" key={item.id} data-aos="fade-right">
                                         <Card.Img variant="top" src={item.image} />
                                         <Card.Title className="titleProduct"></Card.Title>
-                                        <p><button className="button" type="button" data-hover="Show Now" data-active="I'M ACTIVE"><a href={item.href}><span>{item.title} </span></a></button></p>
+                                        <p><button className="button" type="button" data-hover="Show Now" data-active="I'M ACTIVE"><a href={item.href}><span>{item.name} </span></a></button></p>
                                     </Card>
                                 ))}
                             </Row>

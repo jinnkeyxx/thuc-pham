@@ -7,15 +7,15 @@ import TopProduct from '../ProductComponents/TopProduct'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import ProductComponent  from '../Compomnents/ProductComponent'
-import HotOfferComponent from '../ProductComponents/HotOffer'
+import ProductItem from '../ProductComponents/ProductItem'
 
 
-import { HotOffer } from '../Service/HotOffer'
+import { api } from '../Service/apiProduct'
 
 import './index.css'
 
 const IndexPage = () => {
-const DataHotOffer = ProductComponent(HotOfferComponent , HotOffer)
+const Data = ProductComponent(ProductItem , api.getData('offer'))
 
     useEffect(() => {
         AOS.init({duration : 2000});
@@ -32,7 +32,7 @@ const DataHotOffer = ProductComponent(HotOfferComponent , HotOffer)
                     </Col>
                 </Row>
             </Container>
-            <DataHotOffer />
+            <Data />
             <TopProduct/>
         </LayoutComponent>
     )

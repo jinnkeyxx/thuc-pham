@@ -1,15 +1,14 @@
 import React , {useState , useEffect} from 'react'
-// import {apiFake , totalItem , titleProduct} from '../dataFake/HotOffer'
 import { Container , Card , Button} from 'react-bootstrap'
 import Lightbox from "react-awesome-lightbox";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faShoppingCart} from '@fortawesome/free-solid-svg-icons'
 import "react-awesome-lightbox/build/style.css";
 import LoadingComponent from '../Compomnents/Loading'
-import ImgHotOffer from '../images/offer.png'
 import Pagination from '../Compomnents/Pagination'
 
 const Product = (props) => {
+
     const [show , setShow] = useState(false)
     const [image , setImage] = useState('')
     const [titleImage , setTitleImage] = useState('')
@@ -17,7 +16,6 @@ const Product = (props) => {
     const [isLoading , setLoading] = useState(false)
     const [pageData , SetPageData] = useState(1)
     const [pageActive , setPageActive] = useState(1)
-    // const [limitPage , setLimitPage] = useState(4)
     const [Product , setTitleProduct] = useState("")
     const [toTalItemPage , setTotalItemPgae ] = useState(0)
     const limitPage = 4
@@ -30,12 +28,18 @@ const Product = (props) => {
         SetPageData(pageNumber)
         setPageActive(pageNumber)
     }
-
+    const PaginationData = ( data , page , limit) => {
+        const startIndex = (page - 1) * limit
+        const endIndex = page * limit
+        const result = data.slice(startIndex , endIndex)
+        return result
+    }
     useEffect(() => {
         const loadData = async () => {
-            const data = await props.data.getData('hotoffer' , limitPage)
             await setLoading(true)
-            await setDataProduct(data.data)
+            const data  = await props.data
+            if(data.data.length <= 0) setDataProduct([])
+            await setDataProduct(PaginationData( data.data , pageData , limitPage ))
             await setTotalItemPgae(data.totalItem)
             await setTitleProduct(data.title)
             await setLoading(false)
@@ -51,8 +55,9 @@ const Product = (props) => {
                 <div className="hotoffer my-3" >
                     {
                         dataProduct.map((item , index) => (
+
                             <Card style={{ width: '17rem' }} className="mt-3" data-aos="fade-right" key={index}>
-                            {item.is_offer && (<div className="img_offer"><img src={ImgHotOffer} alt="product"/></div>)}
+                            {item.is_offer && (<div className="img_offer"><img src={item.image} alt="product"/></div>)}
                             <div className="card-boddy">
                                 <Card.Img variant="top" src={item.image} onClick={() => showImage(item.image , item.name)} />
                                 <Card.Body className="mt-2">

@@ -3,7 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch , faShoppingCart, faUser} from '@fortawesome/free-solid-svg-icons'
 import {Navbar , NavDropdown , Nav , InputGroup , FormControl , Row , Col } from 'react-bootstrap'
 const HeaderComponent = () => {
+
     return(
+
         <header className="" id="header">
             <Row>
                 <Navbar  className=" navbar-dark" data-toggle="sticky-onscroll"  expand="lg">
@@ -29,7 +31,7 @@ const HeaderComponent = () => {
                                 <Col>
                                     <Nav className="">
                                         <NavDropdown title='User Info' id="basic-nav-dropdown">
-                                            <NavDropdown.Item href="#">Dang Nhap  <FontAwesomeIcon icon={faUser}/></NavDropdown.Item>
+                                            <NavDropdown.Item href="/login">Dang Nhap  <FontAwesomeIcon icon={faUser}/></NavDropdown.Item>
                                             <NavDropdown.Item href="#">Dang Ki <FontAwesomeIcon icon={faUser}/></NavDropdown.Item>
                                         </NavDropdown>
                                         <Nav.Link href="#home" id="shop" className="">View Your Cart <FontAwesomeIcon icon={faShoppingCart}/></Nav.Link>

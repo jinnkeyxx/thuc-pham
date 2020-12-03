@@ -7,13 +7,17 @@ import TopProduct from '../ProductComponents/TopProduct'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import ProductComponent  from '../Compomnents/ProductComponent'
-import FoodComponent from '../ProductComponents/Foot'
-import { Food } from '../Service/Food'
+import ProductItem from '../ProductComponents/ProductItem'
+import { useParams } from 'react-router-dom'
+
+import { api } from '../Service/apiProduct'
+
 import './index.css'
 
-const FootPage = () => {
-const DataFoot = ProductComponent(FoodComponent , Food)
+const IndexPage = () => {
+    const product = useParams()
 
+    const Data = ProductComponent(ProductItem , api.getData(product.name))
     useEffect(() => {
         AOS.init({duration : 2000});
     }, [])
@@ -29,9 +33,9 @@ const DataFoot = ProductComponent(FoodComponent , Food)
                     </Col>
                 </Row>
             </Container>
-            <DataFoot />
+            <Data />
             <TopProduct/>
         </LayoutComponent>
     )
 }
-export default React.memo(FootPage)
+export default React.memo(IndexPage)

@@ -14,10 +14,10 @@ const InfoProductComponent = () => {
                     <Row className="justify-content-md-center justify-content-xs-center justify-content-sm-center">
                         <Col className="mt-5" md={12} sm={12} lg={6}>
                             <ListGroup horizontal className="list-info">
-                                <ListGroup.Item>Events</ListGroup.Item>
-                                <ListGroup.Item>About Us</ListGroup.Item>
-                                <ListGroup.Item>Besr Deals</ListGroup.Item>
-                                <ListGroup.Item>Services</ListGroup.Item>
+                                <ListGroup.Item><a href="/">Events</a></ListGroup.Item>
+                                <ListGroup.Item><a href="/">About Us</a></ListGroup.Item>
+                                <ListGroup.Item><a href="/">Besr Deals</a></ListGroup.Item>
+                                <ListGroup.Item><a href="/">Services</a></ListGroup.Item>
                             </ListGroup>
                         </Col>
                         <Col md={12} sm={12} lg={6} xs={12}>

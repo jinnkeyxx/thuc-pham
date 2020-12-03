@@ -1,40 +1,28 @@
 import React , {useState , useEffect} from 'react'
-import { ListGroup , Navbar } from 'react-bootstrap'
-import { dataFake } from '../dataFake/ListProduct'
+import { ListGroup , Navbar , Nav } from 'react-bootstrap'
+
 import Loading from './Loading'
 
-// import api from '../Service/ListProduct'
+import { api } from '../Service/apiProduct'
 
-// --------- import api server ----------------
 
 const NavRightComponent = (props) => {
     const [dataList , setDataList] = useState([])
     const [isLoading , setLoading] = useState(false)
+
+    // -------------------- Call Api Fake --------------------------
+
     useEffect(() => {
         const loadData = async () => {
             await setLoading(true)
-            const data = dataFake
-            await setDataList(data)
+            const data = await api.getData('category')
+            await setDataList(data.data)
             await setLoading(false)
         }
         loadData()
     }, []);
-    // -------------------- Call Api Fake --------------------------
-
-    // useEffect(() => {
-    //     const loadData = async () => {
-    //         await setLoading(true)
-    //         const data = api.getData()
-    //         await setDataList(data.data)
-    //         await setLoading(false)
-    //     }
-    //     loadData()
-    // }, []);
-
-    // ---------------------- Call Api Server --------------------------
 
 
-    // ----------------------- end Cal api useEffect , use 1 or 2 lycel -----------------
     if(!isLoading && dataList.length <= 0) return <Loading/>
 
     return(
@@ -44,7 +32,7 @@ const NavRightComponent = (props) => {
                 <Navbar.Collapse id="basic-navbar-nav" className="nav-content">
                     <ListGroup>
                         {dataList.map((item , index) => (
-                            <ListGroup.Item key={item._id}>{item.title}</ListGroup.Item>
+                            <ListGroup.Item key={item.id}><a href={`/product/${item.name}`}>{item.name}</a></ListGroup.Item>
                         ))}
                     </ListGroup>
                 </Navbar.Collapse>
