@@ -61,7 +61,7 @@ const Product = (props) => {
                                         {item.name}
                                         {item.discount > 0 ? (<h4 className="">{item.price}$ &nbsp;<del> {item.price}$</del></h4>) : (<h4 className="">{item.price}$</h4>)}
                                     </Card.Title>
-                                    <Button variant="danger" className="add_cart mx-1" onClick={() => showImage(item.image , item.title)}>View <FontAwesomeIcon icon={faEye}/></Button>
+                                    <Button variant="danger" className="add_cart mx-1" onClick={() => showImage(item.image , item.name)}>View <FontAwesomeIcon icon={faEye}/></Button>
                                     <Button variant="danger" className="add_cart">Buy <FontAwesomeIcon icon={faShoppingCart}/> </Button>
                                 </Card.Body>
                             </div>

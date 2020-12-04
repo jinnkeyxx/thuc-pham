@@ -2,11 +2,7 @@ import axios from 'axios'
 import { url } from './url'
 import jwt from 'jsonwebtoken'
 const KEY_JWT = "Bi_mat"
-const creatToken = (data , key) => {
-    const token = jwt.sign(data , key )
-    return token
-}
-export const login = async (user , pass) => {
+export const sendPostData = async (data) => {
 
     const response = await axios({
         url : `${url}/login.php`,
@@ -14,14 +10,15 @@ export const login = async (user , pass) => {
         headers: {
             "Content-type": "application/x-www-form-urlencoded",
         },
-        data : {username : user , password : pass}
+        data : data
     })
     const result = await response.status === 200 ? await response.data  : {}
     return result
 }
+
 export const saveToken = (token) => {
     if(token !== undefined && token !== null && token !== ""){
-        localStorage.setItem('token' , token)
+        localStorage.setItem('token' , JSON.stringify(token))
     }
 }
 export const isLogin = () => {
@@ -41,7 +38,7 @@ export const decodeToke = () => {
     const token = getToken()
     let decode = null
     if(token !== undefined && token !== null && token !== ""){
-        decode = jwt.verify(token , KEY_JWT)
+        decode = jwt.verify(JSON.parse(token) , KEY_JWT)
     }
     return decode
 }

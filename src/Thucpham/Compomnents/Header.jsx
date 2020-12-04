@@ -5,10 +5,11 @@ import {Navbar , NavDropdown , Nav , InputGroup , FormControl , Row , Col } from
 import * as api from '../Service/Login'
 const HeaderComponent = () => {
     const userLogin = api.getUsername()
+    console.log(userLogin);
     const logout = (event) => {
         event.preventDefault()
         api.removeToken()
-        window.location.reload()
+
     }
     return(
 

@@ -1,12 +1,12 @@
 import React , {useState , useEffect} from 'react'
-import { ListGroup , Navbar , Nav } from 'react-bootstrap'
+import { ListGroup , Navbar  } from 'react-bootstrap'
 
 import Loading from './Loading'
 
 import * as api from '../Service/apiProduct'
 
 
-const NavRightComponent = (props) => {
+const NavRightComponent = () => {
     const [dataList , setDataList] = useState([])
     const [isLoading , setLoading] = useState(false)
 
@@ -14,11 +14,12 @@ const NavRightComponent = (props) => {
         const loadData = async () => {
             await setLoading(true)
             const data = await api.getData('category')
+            if(data.data.length <= 0) setDataList([])
             await setDataList(data.data)
             await setLoading(false)
         }
         loadData()
-    }, []);
+    },[]);
 
 
     if(!isLoading && dataList.length <= 0) return <Loading/>
@@ -30,7 +31,7 @@ const NavRightComponent = (props) => {
                 <Navbar.Collapse id="basic-navbar-nav" className="nav-content">
                     <ListGroup>
                         {dataList.map((item , index) => (
-                            <ListGroup.Item key={item.id}><a href={`/product/${item.name}`}>{item.name}</a></ListGroup.Item>
+                            <ListGroup.Item key={index}><a href={`/product/${item.name}`}>{item.name}</a></ListGroup.Item>
                         ))}
                     </ListGroup>
                 </Navbar.Collapse>

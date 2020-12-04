@@ -14,7 +14,7 @@ import * as api from '../Service/apiProduct'
 
 import './index.css'
 
-const IndexPage = () => {
+const ProductPage = () => {
     const product = useParams()
 
     const Data = ProductComponent(ProductItem , api.getData(product.name))
@@ -38,4 +38,4 @@ const IndexPage = () => {
         </LayoutComponent>
     )
 }
-export default React.memo(IndexPage)
+export default React.memo(ProductPage)

@@ -9,14 +9,12 @@ import 'aos/dist/aos.css'
 import ProductComponent  from '../Compomnents/ProductComponent'
 import ProductItem from '../ProductComponents/ProductItem'
 
-
 import * as api from '../Service/apiProduct'
 
 import './index.css'
 
 const IndexPage = () => {
-const Data = ProductComponent(ProductItem , api.getData('offer'))
-
+    const Data = ProductComponent(ProductItem , api.getData('offer'))
     useEffect(() => {
         AOS.init({duration : 2000});
     }, [])

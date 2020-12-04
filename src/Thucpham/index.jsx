@@ -12,22 +12,6 @@ const LoginPage = lazy(() => import('./Pages/Login'))
 const ProductPage = lazy(() => import('./Pages/Product'))
 
 const isAuthencated = api.isLogin()
-const PrivateRoute = ({ children, ...rest }) => {
-    return (
-        <Route
-        {...rest}
-        render={({ location }) =>
-        isAuthencated ? ( children ) : (
-            <Redirect to={{
-                pathname: "/login",
-                state: { from: location }
-              }}
-            />
-          )
-        }
-      />
-    )
-}
 const UserLogin = ({ children, ...rest }) => {
     return (
         <Route
@@ -55,12 +39,9 @@ const App = () => {
                     <UserLogin path="/login">
                         <LoginPage/>
                     </UserLogin>
-                    <PrivateRoute path="/admin">
-                        <LoginPage/>
-                    </PrivateRoute>
-                    <PrivateRoute extract path="/">
+                    <Route extract path="/">
                         <IndexPage/>
-                    </PrivateRoute>
+                    </Route>
                 </Switch>
             </Suspense>
         </Router>

@@ -19,14 +19,21 @@ const FormLogin = () => {
     const [isLoading , setLoading] = useState(false)
     const submitForm = async (event) => {
         event.preventDefault()
+        let obj = {}
         await setLoading(true)
-        const data = await api.login(valueEmail , valuePassword)
+        const data = await api.sendPostData({username : valueEmail , password: valuePassword})
         if(!helper.isEmptyObj(data)){
             if(data.status === true){
                 setLoading(false)
                 setErrorForm(data.messages)
                 api.saveToken(data.token)
-                history.push("/");
+                if(api.getRole() === '1'){
+
+                    history.push("/dashboard")
+                }
+                else {
+                    history.push("/");
+                }
             }
             else {
                 setLoading(false)
@@ -43,7 +50,6 @@ const FormLogin = () => {
         let value = event.target.value
         if(name === "email") setValueEmail(value)
         if(name === "password") setValuePassword(value)
-
     }
     return(
         <Container>
