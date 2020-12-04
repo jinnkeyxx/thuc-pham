@@ -6,7 +6,7 @@ import { faEye, faShoppingCart} from '@fortawesome/free-solid-svg-icons'
 import "react-awesome-lightbox/build/style.css";
 import LoadingComponent from '../Compomnents/Loading'
 import Pagination from '../Compomnents/Pagination'
-
+import * as api from '../Service/apiProduct'
 const Product = (props) => {
 
     const [show , setShow] = useState(false)
@@ -28,18 +28,13 @@ const Product = (props) => {
         SetPageData(pageNumber)
         setPageActive(pageNumber)
     }
-    const PaginationData = ( data , page , limit) => {
-        const startIndex = (page - 1) * limit
-        const endIndex = page * limit
-        const result = data.slice(startIndex , endIndex)
-        return result
-    }
+
     useEffect(() => {
         const loadData = async () => {
             await setLoading(true)
             const data  = await props.data
             if(data.data.length <= 0) setDataProduct([])
-            await setDataProduct(PaginationData( data.data , pageData , limitPage ))
+            await setDataProduct(api.PaginationData( data.data , pageData , limitPage ))
             await setTotalItemPgae(data.totalItem)
             await setTitleProduct(data.title)
             await setLoading(false)

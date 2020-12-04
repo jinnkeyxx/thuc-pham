@@ -7,6 +7,7 @@ import * as api from '../Service/Login'
 import * as helper from '../Helper/Common'
 import '../Compomnents/css/Layout.css'
 import { useHistory } from "react-router-dom";
+
 const FormLogin = () => {
     const history = useHistory();
     useEffect(() => {
@@ -20,15 +21,12 @@ const FormLogin = () => {
         event.preventDefault()
         await setLoading(true)
         const data = await api.login(valueEmail , valuePassword)
-
         if(!helper.isEmptyObj(data)){
-            console.log(data);
             if(data.status === true){
                 setLoading(false)
                 setErrorForm(data.messages)
                 api.saveToken(data.token)
-                console.log(api.getUsername());
-                history.push("/home");
+                history.push("/");
             }
             else {
                 setLoading(false)

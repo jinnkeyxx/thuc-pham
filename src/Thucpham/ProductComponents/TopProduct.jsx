@@ -1,6 +1,6 @@
 import React , {useState , useEffect} from 'react'
 import { Container , Card , Col , Row } from 'react-bootstrap'
-import { api } from '../Service/apiProduct'
+import * as api from '../Service/apiProduct'
 import Pagination from '../Compomnents/Pagination'
 import LoadingComponent from '../Compomnents/Loading'
 import NavRightComponent from '../Compomnents/NavRight'
@@ -12,18 +12,13 @@ const TopProduct = () =>{
     const [Product , setTitleProduct] = useState("")
     const [toTalItemPage , setTotalItemPgae ] = useState(0)
     const limitPage = 4
-    const PaginationData = ( data , page , limit) => {
-        const startIndex = (page - 1) * limit
-        const endIndex = page * limit
-        const result = data.slice(startIndex , endIndex)
-        return result
-    }
+
     useEffect(() => {
         const loadData = async () => {
             await setLoading(true)
             const data = await api.getData('topproduct')
             if(data.data.length <= 0) setDataProduct([])
-            await setDataProduct(PaginationData(data.data , pageData , limitPage))
+            await setDataProduct(api.PaginationData(data.data , pageData , limitPage))
             await setTotalItemPgae(data.totalItem)
             await setTitleProduct(data.title)
             await setLoading(false)

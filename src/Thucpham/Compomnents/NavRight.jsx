@@ -3,14 +3,12 @@ import { ListGroup , Navbar , Nav } from 'react-bootstrap'
 
 import Loading from './Loading'
 
-import { api } from '../Service/apiProduct'
+import * as api from '../Service/apiProduct'
 
 
 const NavRightComponent = (props) => {
     const [dataList , setDataList] = useState([])
     const [isLoading , setLoading] = useState(false)
-
-    // -------------------- Call Api Fake --------------------------
 
     useEffect(() => {
         const loadData = async () => {

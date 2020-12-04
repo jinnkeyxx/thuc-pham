@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { url , token } from './url'
+import { url } from './url'
 import jwt from 'jsonwebtoken'
 const KEY_JWT = "Bi_mat"
 const creatToken = (data , key) => {
@@ -24,6 +24,13 @@ export const saveToken = (token) => {
         localStorage.setItem('token' , token)
     }
 }
+export const isLogin = () => {
+    const user = getToken()
+    if(user !== undefined && user !== null && user !== ""){
+        return true
+    }
+    return false
+}
 export const removeToken = () =>{
     localStorage.removeItem('token')
 }
@@ -34,7 +41,7 @@ export const decodeToke = () => {
     const token = getToken()
     let decode = null
     if(token !== undefined && token !== null && token !== ""){
-        decode = jwt.verify(token ,  KEY_JWT)
+        decode = jwt.verify(token , KEY_JWT)
     }
     return decode
 }
@@ -45,4 +52,12 @@ export const getUsername = () => {
         username = infoUser.username
     }
     return username
+}
+export const  getRole = () => {
+    const infoUser = decodeToke()
+    let role = null
+    if(infoUser !== null){
+        role = infoUser.role
+    }
+    return role
 }

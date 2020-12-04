@@ -10,7 +10,7 @@ import ProductComponent  from '../Compomnents/ProductComponent'
 import ProductItem from '../ProductComponents/ProductItem'
 import { useParams } from 'react-router-dom'
 
-import { api } from '../Service/apiProduct'
+import * as api from '../Service/apiProduct'
 
 import './index.css'
 

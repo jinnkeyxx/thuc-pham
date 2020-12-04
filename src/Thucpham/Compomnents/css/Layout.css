@@ -202,6 +202,7 @@ header nav a.nav-link {
 .list-group-item a {
     color: #000;
     text-decoration: none;
+    font-weight: bold;
 }
 
 .list-group-item:hover a {
