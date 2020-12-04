@@ -1,6 +1,6 @@
 <?php
 header('Access-Control-Allow-Origin: *');
-header('Content-Type: application/json');
+
 include "./function/Function.php";
 include "./function/Database.php";
 $db = new Database;
