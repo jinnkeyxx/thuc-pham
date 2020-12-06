@@ -5,11 +5,11 @@ import {Navbar , NavDropdown , Nav , InputGroup , FormControl , Row , Col } from
 import * as api from '../Service/Login'
 const HeaderComponent = () => {
     const userLogin = api.getUsername()
-    console.log(userLogin);
+    const roleUser = api.getRole()
     const logout = (event) => {
         event.preventDefault()
         api.removeToken()
-
+        window.location.reload()
     }
     return(
 
@@ -40,7 +40,11 @@ const HeaderComponent = () => {
                                         <NavDropdown title={userLogin === null ? 'Login' : `Hi : ${userLogin}`} id="basic-nav-dropdown">
                                             {userLogin === null ? (<> <NavDropdown.Item href="/login">Dang Nhap  <FontAwesomeIcon icon={faUser}/></NavDropdown.Item>
                                             <NavDropdown.Item href="#">Dang Ki <FontAwesomeIcon icon={faUser}/></NavDropdown.Item> </>) :
-                                            (<> <NavDropdown.Item href="#" onClick={logout}>Log out <FontAwesomeIcon icon={faUser}/></NavDropdown.Item> </>)}
+                                            (<>
+                                            {roleUser === '1' && (<NavDropdown.Item href="/dashboard">Quan ly <FontAwesomeIcon icon={faUser}/></NavDropdown.Item>)  }
+
+                                            <NavDropdown.Item href="#" onClick={logout}>Log out <FontAwesomeIcon icon={faUser}/></NavDropdown.Item>
+                                            </>)}
                                         </NavDropdown>
                                         <Nav.Link href="#home" id="shop" className="">View Your Cart <FontAwesomeIcon icon={faShoppingCart}/></Nav.Link>
                                         <Nav.Link href="#link" id="contact">Contact Us</Nav.Link>

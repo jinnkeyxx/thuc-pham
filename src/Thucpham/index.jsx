@@ -10,7 +10,7 @@ import * as api from './Service/Login'
 const IndexPage = lazy(() => import('./Pages/index'))
 const LoginPage = lazy(() => import('./Pages/Login'))
 const ProductPage = lazy(() => import('./Pages/Product'))
-
+const AdminPage = lazy(() => import('../Admin/Pages/Dashboard'))
 const isAuthencated = api.isLogin()
 const UserLogin = ({ children, ...rest }) => {
     return (
@@ -28,11 +28,30 @@ const UserLogin = ({ children, ...rest }) => {
       />
     )
 }
+const PrivateRoute = ({ children, ...rest }) => {
+    return (
+        <Route
+        {...rest}
+        render={({ location }) =>
+        isAuthencated ? ( children ) : (
+            <Redirect to={{
+                pathname: "/login",
+                state: { from: location }
+              }}
+            />
+          )
+        }
+      />
+    )
+}
 const App = () => {
     return(
         <Router>
             <Suspense fallback={<LoadingComponent/>}>
                 <Switch>
+                    <PrivateRoute path="/dashboard">
+                        <AdminPage/>
+                    </PrivateRoute>
                     <Route path="/product/:name">
                         <ProductPage/>
                     </Route>

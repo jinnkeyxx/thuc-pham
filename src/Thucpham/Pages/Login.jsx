@@ -28,11 +28,10 @@ const FormLogin = () => {
                 setErrorForm(data.messages)
                 api.saveToken(data.token)
                 if(api.getRole() === '1'){
-
-                    history.push("/dashboard")
+                    window.location.reload()
                 }
                 else {
-                    history.push("/");
+                    window.location.reload()
                 }
             }
             else {
