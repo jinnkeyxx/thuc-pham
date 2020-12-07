@@ -79,7 +79,8 @@ body {
 
 .wrapper .main_content {
     width: 100%;
-    margin-left: 200px;
+    position: relative;
+    transition: all 1s;
 }
 
 .wrapper .main_content .header {
@@ -110,5 +111,11 @@ body {
 }
 
 header.sc-idOhPF.judJDM {
-    background: #ccc;
+    background: #4b4276;
+}
+
+@media (min-width: 768px) {
+    .sidebar {
+        display: none;
+    }
 }
