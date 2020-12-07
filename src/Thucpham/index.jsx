@@ -10,7 +10,7 @@ import * as api from './Service/Login'
 const IndexPage = lazy(() => import('./Pages/index'))
 const LoginPage = lazy(() => import('./Pages/Login'))
 const ProductPage = lazy(() => import('./Pages/Product'))
-const AdminPage = lazy(() => import('../Admin/Pages/Dashboard'))
+const Dashboard = lazy(() => import('../Admin/Pages/Dashboard'))
 const isAuthencated = api.isLogin()
 const UserLogin = ({ children, ...rest }) => {
     return (
@@ -50,7 +50,7 @@ const App = () => {
             <Suspense fallback={<LoadingComponent/>}>
                 <Switch>
                     <PrivateRoute path="/dashboard">
-                        <AdminPage/>
+                        <Dashboard/>
                     </PrivateRoute>
                     <Route path="/product/:name">
                         <ProductPage/>

@@ -104,3 +104,11 @@ body {
         display: none !important;
     }
 }
+
+.wrapper .main_content .info div {
+    margin: 0;
+}
+
+header.sc-idOhPF.judJDM {
+    background: #ccc;
+}
