@@ -42,6 +42,7 @@ body {
 .wrapper .sidebar ul li a {
     color: #bdb8d7;
     display: block;
+    text-decoration: none;
 }
 
 .wrapper .sidebar ul li a .fas {

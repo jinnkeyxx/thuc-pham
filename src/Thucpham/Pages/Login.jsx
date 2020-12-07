@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook }  from '@fortawesome/free-brands-svg-icons'
 import Loading from '../Compomnents/Loading'
 import {Container , Row , Col , Form , Button ,Card} from 'react-bootstrap'
-import * as api from '../Service/Login'
+import * as api from '../Service/apiHelper'
 import * as helper from '../Helper/Common'
 import '../Compomnents/css/Layout.css'
 import { useHistory } from "react-router-dom";
@@ -21,7 +21,7 @@ const FormLogin = () => {
         event.preventDefault()
         let obj = {}
         await setLoading(true)
-        const data = await api.sendPostData({username : valueEmail , password: valuePassword})
+        const data = await api.sendPostData('login.php' ,{username : valueEmail , password: valuePassword})
         if(!helper.isEmptyObj(data)){
             if(data.status === true){
                 setLoading(false)

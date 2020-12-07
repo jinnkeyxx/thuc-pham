@@ -14,7 +14,19 @@ const data = [
     {title : 1 , director : 2 , year : 'abc'},
     {title : 1 , director : 2 , year : 'abc'},
     {title : 1 , director : 2 , year : 'abc'},
-  ]
+    {title : 1 , director : 2 , year : 'abc'},
+    {title : 1 , director : 2 , year : 'abc'},
+    {title : 1 , director : 2 , year : 'abc'},
+    {title : 1 , director : 2 , year : 'abc'},
+    {title : 1 , director : 2 , year : 'abc'},
+    {title : 1 , director : 2 , year : 'abc'},
+    {title : 1 , director : 2 , year : 'abc'},
+    {title : 1 , director : 2 , year : 'abc'},
+    {title : 1 , director : 2 , year : 'abc'},
+    {title : 1 , director : 2 , year : 'abc'},
+    {title : 1 , director : 2 , year : 'abc'},
+    {title : 1 , director : 2 , year : 'abc'},
+]
   const Dashboard = () => {
 
     const handleChange = (state) => {
@@ -51,6 +63,7 @@ const data = [
                 pagination={true}
                 highlightOnHover
                 responsive
+                fixedHeader
                 onSelectedRowsChange={handleChange}
             />
         </Nav>

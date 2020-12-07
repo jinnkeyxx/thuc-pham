@@ -2,10 +2,10 @@ import axios from 'axios'
 import { url } from './url'
 import jwt from 'jsonwebtoken'
 const KEY_JWT = "Bi_mat"
-export const sendPostData = async (data) => {
+export const sendPostData = async (path , data) => {
 
     const response = await axios({
-        url : `${url}/login.php`,
+        url : `${url}/${path}`,
         method : 'POST',
         headers: {
             "Content-type": "application/x-www-form-urlencoded",
