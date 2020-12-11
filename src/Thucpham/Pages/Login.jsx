@@ -7,7 +7,7 @@ import * as api from '../Service/apiHelper'
 import * as helper from '../Helper/Common'
 import '../Compomnents/css/Layout.css'
 import { useHistory } from "react-router-dom";
-
+import Alert from '../Compomnents/Alert'
 const FormLogin = () => {
     const history = useHistory();
     useEffect(() => {
@@ -17,24 +17,29 @@ const FormLogin = () => {
     const [valuePassword , setValuePassword] = useState("")
     const [error , setErrorForm] = useState("")
     const [isLoading , setLoading] = useState(false)
+    const [statusForm , setStatusForm] = useState("error")
+    const [showAlert , setShowAlert] = useState(false)
+
+    const ConfirmAlert = () => {
+        setShowAlert(false)
+        if(statusForm === 'success'){
+            window.location.reload()
+        }
+    }
     const submitForm = async (event) => {
         event.preventDefault()
-        let obj = {}
         await setLoading(true)
         const data = await api.sendPostData('login.php' ,{username : valueEmail , password: valuePassword})
         if(!helper.isEmptyObj(data)){
             if(data.status === true){
                 setLoading(false)
+                setStatusForm("success")
                 setErrorForm(data.messages)
+                setShowAlert(true)
                 api.saveToken(data.token)
-                if(api.getRole() === '1'){
-                    window.location.reload()
-                }
-                else {
-                    window.location.reload()
-                }
             }
             else {
+                setShowAlert(true)
                 setLoading(false)
                 setErrorForm(data.messages)
             }
@@ -52,12 +57,13 @@ const FormLogin = () => {
     }
     return(
         <Container>
+            {error !== "" && (<Alert show={showAlert} text={error} type={statusForm} Confirm={ConfirmAlert}/>)}
             <Row className="justify-content-md-center">
             <Col sm={9} md={7} lg={5}>
                 <Card className="card-signin my-5">
                     <Card.Body>
                         <Card.Title className="text-center">Sign In</Card.Title>
-                            {error !== "" && ( <p className="text-danger">{error}</p>)}
+
                         <Form className="form-signin" onSubmit={submitForm}>
                         <Form.Group className="form-label-group">
                             <Form.Control type="text" id="inputEmail" name="email" value={valueEmail} onChange={changeInput} className="form-control" placeholder="Email address"   />

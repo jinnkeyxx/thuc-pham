@@ -2,7 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch , faShoppingCart, faUser} from '@fortawesome/free-solid-svg-icons'
 import {Navbar , NavDropdown , Nav , InputGroup , FormControl , Row , Col } from 'react-bootstrap'
-import * as api from '../Service/Login'
+import * as api from '../Service/apiHelper'
 const HeaderComponent = () => {
     const userLogin = api.getUsername()
     const roleUser = api.getRole()

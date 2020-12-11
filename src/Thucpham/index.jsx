@@ -6,11 +6,12 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
-import * as api from './Service/Login'
+import * as api from './Service/apiHelper'
 const IndexPage = lazy(() => import('./Pages/index'))
 const LoginPage = lazy(() => import('./Pages/Login'))
 const ProductPage = lazy(() => import('./Pages/Product'))
 const Dashboard = lazy(() => import('../Admin/Pages/Dashboard'))
+const Upload = lazy(() => import('../Admin/Pages/Upload'))
 const isAuthencated = api.isLogin()
 const UserLogin = ({ children, ...rest }) => {
     return (
@@ -51,6 +52,9 @@ const App = () => {
                 <Switch>
                     <PrivateRoute path="/dashboard">
                         <Dashboard/>
+                    </PrivateRoute>
+                    <PrivateRoute path="/upload">
+                        <Upload/>
                     </PrivateRoute>
                     <Route path="/product/:name">
                         <ProductPage/>
